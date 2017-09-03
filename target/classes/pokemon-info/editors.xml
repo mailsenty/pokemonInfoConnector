@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" url="http://www.mulesoft.org/schema/mule/pokemon-info" prefix="pokemon-info">
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="PokemonInfo" description="" icon="" localId="parentConfig" image="" abstract="true" extends="http://www.mulesoft.org/schema/mule/pokemon-info/abstractPokemon-infoConnectorGeneric"></global-cloud-connector>
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="PokemonInfo: Configuration" description="Global Configuration configuration information." icon="icons/theme.classic/pokemon-info-connector-small.png" localId="config" image="icons/theme.classic/pokemon-info-connector-large.png" abstract="false" extends="http://www.mulesoft.org/schema/mule/pokemon-info/parentConfig" connectivityTesting="off" metaData="static" metaDataKeyDisplay="DISPLAY_NAME" supportsUserDefinedMetaData="false">
+    <attribute-category caption="General" description="Pokemon-info configuration properties.">
+      <group id="pokemon-infoGenericProperties" caption="Basic Settings">
+        <name name="name" caption="Name" description="Give a name to this configuration so it can be later referenced by config-ref." required="true"></name>
+      </group>
+      <group id="general" caption="General">
+        <string defaultValue="Hello" name="greeting" caption="Greeting" description="Greeting message." supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+        <string defaultValue="How are you?" name="reply" caption="Reply" description="Reply message." supportsExpressions="false" required="false" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector caption="Abstractpokemon-infoconnectorgeneric" description="Interact with Pokemon-info." icon="icons/theme.classic/pokemon-info-connector-small.png" localId="abstractPokemon-infoConnectorGeneric" image="icons/theme.classic/pokemon-info-connector-large.png" abstract="true">
+    <attribute-category caption="General" description="General.">
+      <group id="abstractPokemon-infoConnectorGeneric" caption="Basic Settings">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/pokemon-info/config" name="config-ref" caption="Connector Configuration" description="Specify which configuration to use for this invocation." required="true"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector versions="[3.5.0,8.0.0]" aliasId="org.mule.tooling.ui.modules.core.pattern.pokemon-info" caption="PokemonInfo" description="" icon="icons/theme.classic/pokemon-info-connector-small.png" localId="pokemon-info-connector" image="icons/theme.classic/pokemon-info-connector-large.png" extends="http://www.mulesoft.org/schema/mule/pokemon-info/abstractPokemon-infoConnectorGeneric">
+    <attribute-category caption="General" description="General.">
+      <group id="pokemon-infoConnectorGeneric" caption="Basic Settings">
+        <modeSwitch alwaysCombo="true" name="Pokemon-info operations to execute" caption="Operation" description="Operation.">
+          <no-operation abstractElement="http://www.mulesoft.org/schema/mule/pokemon-info/abstractPokemon-infoConnectorGeneric" versions="[3.5.0,8.0.0]" connector-name="processor"></no-operation>
+          <mode modeId="http://www.mulesoft.org/schema/mule/pokemon-info/search-on-ability" modeLabel="Search on ability"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/pokemon-info/search-on-type" modeLabel="Search on type"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Search On Ability" icon="icons/theme.classic/pokemon-info-connector-small.png" localId="search-on-ability" image="icons/theme.classic/pokemon-info-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/pokemon-info/abstractPokemon-infoConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="level" caption="Level" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.lang.String" caption="Search On Type" icon="icons/theme.classic/pokemon-info-connector-small.png" localId="search-on-type" image="icons/theme.classic/pokemon-info-connector-large.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/pokemon-info/abstractPokemon-infoConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="typelevel" caption="Typelevel" description="" required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+</namespace>

@@ -1,0 +1,1 @@
+http\://www.mulesoft.org/schema/mule/pokemon-info=org.mule.modules.pokemoninfo.generated.config.PokemonInfoNamespaceHandler
